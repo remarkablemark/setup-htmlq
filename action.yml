@@ -9,5 +9,6 @@ inputs:
 runs:
   using: node16
   main: dist/index.js
-icon: search
-color: blue
+branding:
+  icon: search
+  color: blue
