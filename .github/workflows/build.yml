@@ -68,7 +68,12 @@ jobs:
         run: command -v htmlq
 
       - name: Check version
-        run: htmlq --version
+        run: |
+          if [[ $(htmlq --version) != *'${{ matrix.version }}'* ]]; then
+            echo 'Version does not match. See version below:'
+            htmlq --version
+            exit 1
+          fi
 
       - name: Show help
         run: htmlq --help
