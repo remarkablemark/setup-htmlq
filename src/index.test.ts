@@ -23,11 +23,13 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
   });
 
   it('downloads, extracts, and exposes CLI in PATH', async () => {
-    const version = '1.2.3';
+    const version = '0.4.0';
     const pathToTarball = 'path/to/tarball';
     const pathToCLI = 'path/to/cli';
 
-    mockedCore.getInput.mockReturnValueOnce('1.2.3');
+    mockedCore.getInput.mockImplementationOnce((name) =>
+      name === 'htmlq-version' ? version : ''
+    );
     mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
     const extract = os === 'win32' ? mockedTc.extractZip : mockedTc.extractTar;
     extract.mockResolvedValueOnce(pathToCLI);
@@ -36,7 +38,7 @@ describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
 
     expect(mockedTc.downloadTool).toBeCalledWith(
       expect.stringContaining(
-        `https://github.com/cli/cli/releases/download/v${version}/gh_${version}_`
+        `https://github.com/mgdm/htmlq/releases/download/v${version}/htmlq-x86_64-`
       )
     );
     expect(extract).toBeCalledWith(pathToTarball);

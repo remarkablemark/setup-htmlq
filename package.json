@@ -1,7 +1,7 @@
 {
   "name": "setup-htmlq",
   "version": "1.0.0-alpha",
-  "description": "GitHub Actions setup CLI template",
+  "description": "Set up your GitHub Actions workflow with htmlq",
   "author": "Mark <mark@remarkablemark.org>",
   "main": "src/index.ts",
   "scripts": {

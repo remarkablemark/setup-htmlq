@@ -2,7 +2,7 @@
 
 [![build](https://github.com/remarkablemark/setup-htmlq/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/setup-htmlq/actions/workflows/build.yml)
 
-GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh). Template from [remarkablemark/github-actions-typescript-template](https://github.com/remarkablemark/github-actions-typescript-template).
+Set up your GitHub Actions workflow with [htmlq](https://github.com/mgdm/htmlq).
 
 ## Usage
 
@@ -17,14 +17,14 @@ steps:
 
 ## Inputs
 
-### `version`
+### `htmlq-version`
 
-**Optional**: The CLI version. Defaults to `2.27.0`:
+**Optional**: The htmlq [version](https://github.com/mgdm/htmlq/releases). Defaults to [`0.4.0`](https://github.com/mgdm/htmlq/releases/tag/v0.4.0):
 
 ```yaml
 - uses: remarkablemark/setup-htmlq@v1
   with:
-    version: 2.27.0
+    htmlq-version: 0.4.0
 ```
 
 ## Contributions

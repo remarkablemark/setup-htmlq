@@ -1,11 +1,11 @@
 name: setup-htmlq
-description: GitHub Actions setup CLI template
+description: Set up your GitHub Actions workflow with htmlq
 author: remarkablemark
 inputs:
-  version:
-    description: CLI version
+  htmlq-version:
+    description: htmlq version
     required: false
-    default: 2.27.0
+    default: 0.4.0
 runs:
   using: node16
   main: dist/index.js
