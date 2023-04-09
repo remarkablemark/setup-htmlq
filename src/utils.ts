@@ -1,5 +1,4 @@
 import os from 'os';
-import path from 'path';
 
 const platform = {
   win32: 'windows',
@@ -32,7 +31,7 @@ export function getDownloadObject(version: string) {
   const extension = platform === 'win32' ? 'zip' : 'tar.gz';
 
   return {
-    binPath: platform === 'win32' ? 'bin' : path.join(filename, 'bin'),
+    binPath: filename,
     url: `https://github.com/mgdm/htmlq/releases/download/v${version}/${filename}.${extension}`,
   };
 }

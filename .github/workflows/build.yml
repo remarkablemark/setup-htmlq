@@ -52,7 +52,8 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        version: [0.2.0, 0.3.0, 0.4.0]
+        # 0.2.0 is not supported
+        version: [0.3.0, 0.4.0]
     runs-on: ${{ matrix.os }}
     steps:
       - name: Checkout repository
@@ -63,8 +64,11 @@ jobs:
         with:
           htmlq-version: ${{ matrix.version }}
 
+      - name: Get binary
+        run: command -v htmlq
+
       - name: Check version
-        run: |
-          command -v htmlq
-          htmlq --version
-          htmlq --help
+        run: htmlq --version
+
+      - name: Show help
+        run: htmlq --help
