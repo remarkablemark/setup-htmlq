@@ -1,4 +1,4 @@
-name: github-actions-setup-cli-template
+name: setup-htmlq
 description: GitHub Actions setup CLI template
 author: remarkablemark
 inputs:

@@ -1,6 +1,6 @@
-# github-actions-setup-cli-template
+# setup-htmlq
 
-[![build](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/github-actions-setup-cli-template/actions/workflows/build.yml)
+[![build](https://github.com/remarkablemark/setup-htmlq/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/setup-htmlq/actions/workflows/build.yml)
 
 GitHub Actions setup CLI template. Inspired by [github-developer/example-setup-gh](https://github.com/github-developer/example-setup-gh). Template from [remarkablemark/github-actions-typescript-template](https://github.com/remarkablemark/github-actions-typescript-template).
 
@@ -12,7 +12,7 @@ See [action.yml](action.yml)
 
 ```yaml
 steps:
-  - uses: remarkablemark/github-actions-setup-cli-template@v1
+  - uses: remarkablemark/setup-htmlq@v1
 ```
 
 ## Inputs
@@ -22,7 +22,7 @@ steps:
 **Optional**: The CLI version. Defaults to `2.27.0`:
 
 ```yaml
-- uses: remarkablemark/github-actions-setup-cli-template@v1
+- uses: remarkablemark/setup-htmlq@v1
   with:
     version: 2.27.0
 ```
