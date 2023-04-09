@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/remarkablemark/setup-htmlq/compare/v1.0.0...v1.0.1) (2023-04-09)
+
+
+### Bug Fixes
+
+* **github:** tag major and minor versions in release-please.yml ([0a995ec](https://github.com/remarkablemark/setup-htmlq/commit/0a995ec1dfc9177bbb450f1539f5560a102ef9b5))
+
 ## 1.0.0 (2023-04-09)
 
 
