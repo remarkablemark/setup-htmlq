@@ -1,22 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when OS is "darwin" gets download object 1`] = `
+exports[`getDownloadObject when OS is "darwin" gets download object 1`] = `
 {
-  "binPath": "htmlq-x86_64-darwin",
   "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-darwin.tar.gz",
 }
 `;
 
-exports[`when OS is "linux" gets download object 1`] = `
+exports[`getDownloadObject when OS is "linux" gets download object 1`] = `
 {
-  "binPath": "htmlq-x86_64-linux",
   "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-linux.tar.gz",
 }
 `;
 
-exports[`when OS is "win32" gets download object 1`] = `
+exports[`getDownloadObject when OS is "win32" gets download object 1`] = `
 {
-  "binPath": "htmlq-x86_64-windows",
   "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-windows.zip",
 }
 `;

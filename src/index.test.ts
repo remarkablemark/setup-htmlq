@@ -1,58 +1,55 @@
 import * as core from '@actions/core';
 import * as tc from '@actions/tool-cache';
-import os from 'os';
 
 import { run } from '.';
+import { VERSION } from './constants';
+import * as utils from './utils';
 
 jest.mock('@actions/core');
 jest.mock('@actions/tool-cache');
-jest.mock('os');
+jest.mock('./utils');
 
 const mockedCore = jest.mocked(core);
 const mockedTc = jest.mocked(tc);
-const mockedOs = jest.mocked(os);
+const mockedUtils = jest.mocked(utils);
 
 beforeEach(() => {
   jest.resetAllMocks();
 });
 
-describe.each(['darwin', 'win32', 'linux'])('when OS is %p', (os) => {
-  beforeEach(() => {
-    mockedOs.platform.mockReturnValueOnce(os as NodeJS.Platform);
-    mockedOs.arch.mockReturnValueOnce('arm64');
-  });
-
+describe.each(['.zip', '.tar.gz'])('action', (downloadUrl) => {
   it('downloads, extracts, and exposes CLI in PATH', async () => {
-    const version = '0.4.0';
     const pathToTarball = 'path/to/tarball';
     const pathToCLI = 'path/to/cli';
 
     mockedCore.getInput.mockImplementationOnce((name) =>
-      name === 'htmlq-version' ? version : ''
+      name === 'htmlq-version' ? VERSION : ''
     );
+    mockedUtils.getDownloadObject.mockReturnValueOnce({ url: downloadUrl });
     mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
-    const extract = os === 'win32' ? mockedTc.extractZip : mockedTc.extractTar;
+    const extract =
+      downloadUrl === '.zip' ? mockedTc.extractZip : mockedTc.extractTar;
     extract.mockResolvedValueOnce(pathToCLI);
 
     await run();
 
-    expect(mockedTc.downloadTool).toBeCalledWith(
-      expect.stringContaining(
-        `https://github.com/mgdm/htmlq/releases/download/v${version}/htmlq-x86_64-`
-      )
-    );
+    expect(mockedCore.getInput).toBeCalledWith('htmlq-version');
+    expect(mockedUtils.getDownloadObject).toBeCalledWith(VERSION);
+    expect(mockedTc.downloadTool).toBeCalledWith(downloadUrl);
     expect(extract).toBeCalledWith(pathToTarball);
-    expect(mockedCore.addPath).toBeCalledWith(
-      expect.stringContaining(pathToCLI)
-    );
+    expect(mockedCore.addPath).toBeCalledWith(pathToCLI);
   });
 });
 
-it('catches error', async () => {
-  const message = 'error';
-  mockedCore.getInput.mockImplementationOnce(() => {
-    throw new Error(message);
+describe('error', () => {
+  it('throws error', async () => {
+    mockedUtils.getDownloadObject.mockReturnValueOnce({ url: '' });
+    const message = 'error';
+    mockedTc.downloadTool.mockImplementationOnce(() => {
+      throw new Error(message);
+    });
+    await run();
+    expect(mockedUtils.getDownloadObject).toBeCalledWith(VERSION);
+    expect(mockedCore.setFailed).toBeCalledWith(message);
   });
-  await run();
-  expect(mockedCore.setFailed).toBeCalledWith(message);
 });

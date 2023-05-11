@@ -1,6 +1,8 @@
 import os from 'os';
 
 const platform = {
+  darwin: 'darwin',
+  linux: 'linux',
   win32: 'windows',
 } as const;
 
@@ -13,7 +15,7 @@ const platform = {
  * @returns - Return value in [darwin, linux, windows]
  */
 function getOS(os: NodeJS.Platform) {
-  return platform[os as keyof typeof platform] || os;
+  return platform[os as keyof typeof platform];
 }
 
 /**
@@ -31,7 +33,6 @@ export function getDownloadObject(version: string) {
   const extension = platform === 'win32' ? 'zip' : 'tar.gz';
 
   return {
-    binPath: filename,
     url: `https://github.com/mgdm/htmlq/releases/download/v${version}/${filename}.${extension}`,
   };
 }
