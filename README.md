@@ -14,7 +14,7 @@ See [action.yml](action.yml)
 
 ```yaml
 steps:
-  - uses: remarkablemark/setup-htmlq@v1
+  - uses: remarkablemark/setup-htmlq@v2
 ```
 
 ## Inputs
@@ -24,7 +24,7 @@ steps:
 **Optional**: The htmlq [version](https://github.com/mgdm/htmlq/releases). Defaults to [`0.4.0`](https://github.com/mgdm/htmlq/releases/tag/v0.4.0):
 
 ```yaml
-- uses: remarkablemark/setup-htmlq@v1
+- uses: remarkablemark/setup-htmlq@v2
   with:
     htmlq-version: 0.4.0
 ```
