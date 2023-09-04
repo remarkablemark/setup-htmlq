@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/remarkablemark/setup-htmlq/compare/v1.0.1...v2.0.0) (2023-09-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* Update default runtime to node20
+
+### Features
+
+* change default runtime from node16 to node20 ([f6921bd](https://github.com/remarkablemark/setup-htmlq/commit/f6921bdf25ec94850ebdcba972c18079c23f8ffc))
+
 ## [1.0.1](https://github.com/remarkablemark/setup-htmlq/compare/v1.0.0...v1.0.1) (2023-04-09)
 
 
