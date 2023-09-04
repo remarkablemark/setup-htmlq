@@ -23,7 +23,7 @@ describe.each(['.zip', '.tar.gz'])('action', (downloadUrl) => {
     const pathToCLI = 'path/to/cli';
 
     mockedCore.getInput.mockImplementationOnce((name) =>
-      name === 'htmlq-version' ? VERSION : ''
+      name === 'htmlq-version' ? VERSION : '',
     );
     mockedUtils.getDownloadObject.mockReturnValueOnce({ url: downloadUrl });
     mockedTc.downloadTool.mockResolvedValueOnce(pathToTarball);
