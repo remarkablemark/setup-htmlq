@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.2](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.1...v2.0.2) (2023-09-12)
+
+
+### Build System
+
+* **deps:** bump @actions/core from 1.10.0 to 1.10.1 ([#132](https://github.com/remarkablemark/setup-htmlq/issues/132)) ([857fb00](https://github.com/remarkablemark/setup-htmlq/commit/857fb00387df6d880f31281ee1b9f0f328aaac85))
+
 ## [2.0.1](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.0...v2.0.1) (2023-09-07)
 
 
