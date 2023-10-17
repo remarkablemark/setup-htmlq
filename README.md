@@ -13,8 +13,7 @@ See [action.yml](action.yml)
 **Basic:**
 
 ```yaml
-steps:
-  - uses: remarkablemark/setup-htmlq@v2
+- uses: remarkablemark/setup-htmlq@v2
 ```
 
 ## Inputs
