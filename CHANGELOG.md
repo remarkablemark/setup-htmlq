@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.2...v2.0.3) (2024-02-16)
+
+
+### Bug Fixes
+
+* **package:** fix 1 moderate severity vulnerability ([3d23af1](https://github.com/remarkablemark/setup-htmlq/commit/3d23af17aecae36a2a2463f0164231315fc144b2))
+
 ## [2.0.2](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.1...v2.0.2) (2023-09-12)
 
 
