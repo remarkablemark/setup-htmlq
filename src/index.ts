@@ -8,7 +8,7 @@ import {
 } from '@actions/tool-cache';
 
 import { CLI_NAME, VERSION } from './constants';
-import { getDownloadUrl, getFilepath } from './utils';
+import { getBinaryPath, getDownloadUrl } from './utils';
 
 export async function run() {
   try {
@@ -25,9 +25,9 @@ export async function run() {
     const binaryDirectory = await extract(downloadPath);
 
     // Rename the binary
-    const binaryPath = getFilepath(binaryDirectory, name);
+    const binaryPath = getBinaryPath(binaryDirectory, name);
     if (name !== CLI_NAME) {
-      await exec('mv', [getFilepath(binaryDirectory, CLI_NAME), binaryPath]);
+      await exec('mv', [getBinaryPath(binaryDirectory, CLI_NAME), binaryPath]);
     }
 
     // Cache the tool

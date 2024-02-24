@@ -44,6 +44,6 @@ export function getDownloadUrl(version: string) {
  * @param name - CLI name
  * @returns - Binary path
  */
-export function getFilepath(directory: string, name: string) {
+export function getBinaryPath(directory: string, name: string) {
   return path.join(directory, name + (os.platform() === 'win32' ? '.exe' : ''));
 }

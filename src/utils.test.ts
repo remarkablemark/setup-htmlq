@@ -1,6 +1,6 @@
 import os from 'os';
 
-import { getDownloadUrl, getFilepath } from './utils';
+import { getBinaryPath, getDownloadUrl } from './utils';
 
 jest.mock('os');
 
@@ -33,7 +33,7 @@ describe('getDownloadUrl', () => {
   });
 });
 
-describe('getFilepath', () => {
+describe('getBinaryPath', () => {
   describe.each(platforms)('when OS is %p', (os) => {
     beforeEach(() => {
       jest.resetAllMocks();
@@ -43,7 +43,7 @@ describe('getFilepath', () => {
     it('returns CLI filepath', () => {
       const directory = 'directory';
       const name = 'name';
-      expect(getFilepath(directory, name)).toMatchSnapshot();
+      expect(getBinaryPath(directory, name)).toMatchSnapshot();
     });
   });
 });
