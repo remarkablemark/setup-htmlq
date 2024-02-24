@@ -17,3 +17,9 @@ exports[`getDownloadObject when OS is "win32" gets download object 1`] = `
   "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-windows.zip",
 }
 `;
+
+exports[`getFilepath when OS is "darwin" returns CLI filepath 1`] = `"directory/name"`;
+
+exports[`getFilepath when OS is "linux" returns CLI filepath 1`] = `"directory/name"`;
+
+exports[`getFilepath when OS is "win32" returns CLI filepath 1`] = `"directory/name.exe"`;

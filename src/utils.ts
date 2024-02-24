@@ -1,4 +1,5 @@
 import os from 'os';
+import path from 'path';
 
 const platform = {
   darwin: 'darwin',
@@ -24,6 +25,7 @@ function getOS(os: NodeJS.Platform) {
  * @see {@link https://github.com/mgdm/htmlq/releases}
  *
  * @param version - CLI version
+ * @param name - CLI name
  * @returns - URL and binary path
  */
 export function getDownloadObject(version: string) {
@@ -35,4 +37,15 @@ export function getDownloadObject(version: string) {
   return {
     url: `https://github.com/mgdm/htmlq/releases/download/v${version}/${filename}.${extension}`,
   };
+}
+
+/**
+ * Gets CLI path.
+ *
+ * @param directory - Directory
+ * @param name - CLI name
+ * @returns - Binary path
+ */
+export function getFilepath(directory: string, name: string) {
+  return path.join(directory, name + (os.platform() === 'win32' ? '.exe' : ''));
 }

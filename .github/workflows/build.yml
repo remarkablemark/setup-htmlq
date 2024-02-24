@@ -75,6 +75,7 @@ jobs:
         uses: ./
         with:
           htmlq-version: ${{ matrix.version }}
+          cli-name: htmlq
 
       - name: Get binary
         run: command -v htmlq
