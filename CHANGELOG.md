@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.3...v2.1.0) (2024-02-24)
+
+
+### Features
+
+* add input `cli-name` ([2dcb975](https://github.com/remarkablemark/setup-htmlq/commit/2dcb975a8b59f5a26a91f073ebe5f5f896f7d589))
+
 ## [2.0.3](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.2...v2.0.3) (2024-02-16)
 
 
