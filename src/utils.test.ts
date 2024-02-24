@@ -1,24 +1,49 @@
 import os from 'os';
 
-import { getDownloadObject } from './utils';
+import { getDownloadObject, getFilepath } from './utils';
 
 jest.mock('os');
 
 const mockedOs = jest.mocked(os);
 
-describe('getDownloadObject', () => {
-  const platforms = ['darwin', 'linux', 'win32'];
+const platforms = ['darwin', 'linux', 'win32'] as const;
 
+describe('getDownloadObject', () => {
   describe.each(platforms)('when OS is %p', (os) => {
+    const { RUNNER_TEMP } = process.env;
     const version = '0.4.0';
+
+    beforeAll(() => {
+      process.env.RUNNER_TEMP = '';
+    });
+
+    afterAll(() => {
+      process.env.RUNNER_TEMP = RUNNER_TEMP;
+    });
 
     beforeEach(() => {
       jest.resetAllMocks();
-      mockedOs.platform.mockReturnValueOnce(os as NodeJS.Platform);
+      mockedOs.platform.mockReturnValueOnce(os);
+      mockedOs.tmpdir.mockReturnValueOnce('/var/folders/1/tmp/T');
     });
 
     it('gets download object', () => {
       expect(getDownloadObject(version)).toMatchSnapshot();
+    });
+  });
+});
+
+describe('getFilepath', () => {
+  describe.each(platforms)('when OS is %p', (os) => {
+    beforeEach(() => {
+      jest.resetAllMocks();
+      mockedOs.platform.mockReturnValueOnce(os);
+    });
+
+    it('returns CLI filepath', () => {
+      const directory = 'directory';
+      const name = 'name';
+      expect(getFilepath(directory, name)).toMatchSnapshot();
     });
   });
 });

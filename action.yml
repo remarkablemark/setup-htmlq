@@ -6,6 +6,10 @@ inputs:
     description: htmlq version
     required: false
     default: 0.4.0
+  cli-name:
+    description: htmlq CLI name
+    required: false
+    default: htmlq
 runs:
   using: node20
   main: dist/index.js

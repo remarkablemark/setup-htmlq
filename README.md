@@ -28,6 +28,16 @@ See [action.yml](action.yml)
     htmlq-version: 0.4.0
 ```
 
+### `cli-name`
+
+**Optional**: The htmlq CLI name. Defaults to `htmlq`:
+
+```yaml
+- uses: remarkablemark/setup-htmlq@v2
+  with:
+    cli-name: htmlq
+```
+
 ## Examples
 
 - [remarkablemark/setup-htmlq-demo](https://github.com/remarkablemark/setup-htmlq-demo)
