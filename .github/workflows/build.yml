@@ -77,7 +77,7 @@ jobs:
           htmlq-version: ${{ matrix.version }}
           cli-name: htmlq
 
-      - name: Get binary
+      - name: Locate binary
         run: command -v htmlq
 
       - name: Check version
