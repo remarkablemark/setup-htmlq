@@ -44,8 +44,8 @@ describe.each(downloads)('action', (download) => {
 
     mockedOs.platform.mockReturnValue(download.os);
 
-    mockedCore.getInput.mockImplementation((name) => {
-      switch (name) {
+    mockedCore.getInput.mockImplementation((input) => {
+      switch (input) {
         case 'htmlq-version':
           return version;
         case 'cli-name':
@@ -66,21 +66,21 @@ describe.each(downloads)('action', (download) => {
   it('downloads, extracts, and adds CLI to PATH', async () => {
     await run();
 
-    expect(mockedTc.downloadTool).toBeCalledWith(download.url);
+    expect(mockedTc.downloadTool).toHaveBeenCalledWith(download.url);
 
-    expect(mockedExec.exec).toBeCalledWith('mv', [
+    expect(mockedExec.exec).toHaveBeenCalledWith('mv', [
       download.source,
       download.cli,
     ]);
 
-    expect(mockedTc.cacheFile).toBeCalledWith(
+    expect(mockedTc.cacheFile).toHaveBeenCalledWith(
       download.cli,
       name,
       name,
       version,
     );
 
-    expect(mockedCore.addPath).toBeCalledWith(downloadDirectory);
+    expect(mockedCore.addPath).toHaveBeenCalledWith(downloadDirectory);
   });
 });
 
@@ -91,6 +91,6 @@ describe('error', () => {
       throw new Error(message);
     });
     await run();
-    expect(mockedCore.setFailed).toBeCalledWith(message);
+    expect(mockedCore.setFailed).toHaveBeenCalledWith(message);
   });
 });
