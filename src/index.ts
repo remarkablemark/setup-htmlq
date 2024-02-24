@@ -8,7 +8,7 @@ import {
 } from '@actions/tool-cache';
 
 import { CLI_NAME, VERSION } from './constants';
-import { getDownloadObject, getFilepath } from './utils';
+import { getDownloadUrl, getFilepath } from './utils';
 
 export async function run() {
   try {
@@ -17,11 +17,11 @@ export async function run() {
     const name = getInput('cli-name') || CLI_NAME;
 
     // Download the specific version of the tool, e.g. as a tarball/zipball
-    const download = getDownloadObject(version);
-    const downloadPath = await downloadTool(download.url);
+    const downloadUrl = getDownloadUrl(version);
+    const downloadPath = await downloadTool(downloadUrl);
 
     // Extract the tarball/zipball onto host runner
-    const extract = download.url.endsWith('.zip') ? extractZip : extractTar;
+    const extract = downloadUrl.endsWith('.zip') ? extractZip : extractTar;
     const downloadDirectory = await extract(downloadPath);
 
     // Rename binary

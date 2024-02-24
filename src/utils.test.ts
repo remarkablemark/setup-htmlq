@@ -1,6 +1,6 @@
 import os from 'os';
 
-import { getDownloadObject, getFilepath } from './utils';
+import { getDownloadUrl, getFilepath } from './utils';
 
 jest.mock('os');
 
@@ -8,7 +8,7 @@ const mockedOs = jest.mocked(os);
 
 const platforms = ['darwin', 'linux', 'win32'] as const;
 
-describe('getDownloadObject', () => {
+describe('getDownloadUrl', () => {
   describe.each(platforms)('when OS is %p', (os) => {
     const { RUNNER_TEMP } = process.env;
     const version = '0.4.0';
@@ -28,7 +28,7 @@ describe('getDownloadObject', () => {
     });
 
     it('gets download object', () => {
-      expect(getDownloadObject(version)).toMatchSnapshot();
+      expect(getDownloadUrl(version)).toMatchSnapshot();
     });
   });
 });

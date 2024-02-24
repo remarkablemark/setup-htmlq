@@ -20,23 +20,21 @@ function getOS(os: NodeJS.Platform) {
 }
 
 /**
- * Gets download object.
+ * Gets download URL.
  *
  * @see {@link https://github.com/mgdm/htmlq/releases}
  *
  * @param version - CLI version
  * @param name - CLI name
- * @returns - URL and binary path
+ * @returns - Download URL
  */
-export function getDownloadObject(version: string) {
+export function getDownloadUrl(version: string) {
   const platform = os.platform();
 
   const filename = `htmlq-x86_64-${getOS(platform)}`;
   const extension = platform === 'win32' ? 'zip' : 'tar.gz';
 
-  return {
-    url: `https://github.com/mgdm/htmlq/releases/download/v${version}/${filename}.${extension}`,
-  };
+  return `https://github.com/mgdm/htmlq/releases/download/v${version}/${filename}.${extension}`;
 }
 
 /**

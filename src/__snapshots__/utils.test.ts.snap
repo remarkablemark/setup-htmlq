@@ -1,22 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`getDownloadObject when OS is "darwin" gets download object 1`] = `
-{
-  "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-darwin.tar.gz",
-}
-`;
+exports[`getDownloadUrl when OS is "darwin" gets download object 1`] = `"https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-darwin.tar.gz"`;
 
-exports[`getDownloadObject when OS is "linux" gets download object 1`] = `
-{
-  "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-linux.tar.gz",
-}
-`;
+exports[`getDownloadUrl when OS is "linux" gets download object 1`] = `"https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-linux.tar.gz"`;
 
-exports[`getDownloadObject when OS is "win32" gets download object 1`] = `
-{
-  "url": "https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-windows.zip",
-}
-`;
+exports[`getDownloadUrl when OS is "win32" gets download object 1`] = `"https://github.com/mgdm/htmlq/releases/download/v0.4.0/htmlq-x86_64-windows.zip"`;
 
 exports[`getFilepath when OS is "darwin" returns CLI filepath 1`] = `"directory/name"`;
 
