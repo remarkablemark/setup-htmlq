@@ -12,29 +12,29 @@ import { getDownloadUrl, getFilepath } from './utils';
 
 export async function run() {
   try {
-    // Get version of tool to be installed
+    // Get the version of the tool to be installed
     const version = getInput('htmlq-version') || VERSION;
     const name = getInput('cli-name') || CLI_NAME;
 
-    // Download the specific version of the tool, e.g. as a tarball/zipball
+    // Download the specific version of the tool (e.g., tarball/zipball)
     const downloadUrl = getDownloadUrl(version);
     const downloadPath = await downloadTool(downloadUrl);
 
-    // Extract the tarball/zipball onto host runner
+    // Extract the tarball/zipball onto the host runner
     const extract = downloadUrl.endsWith('.zip') ? extractZip : extractTar;
-    const downloadDirectory = await extract(downloadPath);
+    const binaryDirectory = await extract(downloadPath);
 
-    // Rename binary
-    const cliPath = getFilepath(downloadDirectory, name);
+    // Rename the binary
+    const binaryPath = getFilepath(binaryDirectory, name);
     if (name !== CLI_NAME) {
-      await exec('mv', [getFilepath(downloadDirectory, CLI_NAME), cliPath]);
+      await exec('mv', [getFilepath(binaryDirectory, CLI_NAME), binaryPath]);
     }
 
-    // Cache tool
-    await cacheFile(cliPath, name, name, version);
+    // Cache the tool
+    await cacheFile(binaryPath, name, name, version);
 
     // Expose the tool by adding it to the PATH
-    addPath(downloadDirectory);
+    addPath(binaryDirectory);
   } catch (error) {
     if (error instanceof Error) {
       setFailed(error.message);
