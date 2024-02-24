@@ -6,6 +6,19 @@
 
 ⚙️ Set up your GitHub Actions workflow with [htmlq](https://github.com/mgdm/htmlq).
 
+## Quick Start
+
+```yaml
+name: htmlq
+on: push
+jobs:
+  htmlq:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup htmlq
+        uses: remarkablemark/setup-htmlq@v2
+```
+
 ## Usage
 
 See [action.yml](action.yml)
