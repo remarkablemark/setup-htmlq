@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/remarkablemark/setup-htmlq/compare/v2.1.0...v2.1.1) (2024-09-24)
+
+
+### Build System
+
+* **deps-dev:** bump @vercel/ncc from 0.38.1 to 0.38.2 ([#435](https://github.com/remarkablemark/setup-htmlq/issues/435)) ([848b0c3](https://github.com/remarkablemark/setup-htmlq/commit/848b0c3233301b1b0da915815315f820e2413954))
+
 ## [2.1.0](https://github.com/remarkablemark/setup-htmlq/compare/v2.0.3...v2.1.0) (2024-02-24)
 
 
