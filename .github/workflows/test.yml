@@ -33,7 +33,7 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   # action should work on a clean machine without building
-  action:
+  integration:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
