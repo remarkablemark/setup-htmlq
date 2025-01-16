@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.4](https://github.com/remarkablemark/setup-htmlq/compare/v2.1.3...v2.1.4) (2025-01-16)
+
+
+### Build System
+
+* **deps:** bump @actions/tool-cache from 2.0.1 to 2.0.2 ([#524](https://github.com/remarkablemark/setup-htmlq/issues/524)) ([1e1b323](https://github.com/remarkablemark/setup-htmlq/commit/1e1b32312eb1d22f3a0cd3b51edbe9db224253bc))
+
 ## [2.1.3](https://github.com/remarkablemark/setup-htmlq/compare/v2.1.2...v2.1.3) (2024-10-07)
 
 
