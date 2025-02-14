@@ -58,7 +58,7 @@ jobs:
         run: command -v htmlq
 
       - name: Check version
-        if: matrix.os != 'windows-latest'
+        shell: bash
         run: |
           if [[ $(htmlq --version) != *'${{ matrix.version }}'* ]]; then
             echo 'Version does not match. See version below:'
