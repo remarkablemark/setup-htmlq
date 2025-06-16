@@ -26,6 +26,7 @@ export async function run() {
 
     // Rename the binary
     const binaryPath = getBinaryPath(binaryDirectory, name);
+    /* istanbul ignore else */
     if (name !== CLI_NAME) {
       await exec('mv', [getBinaryPath(binaryDirectory, CLI_NAME), binaryPath]);
     }
