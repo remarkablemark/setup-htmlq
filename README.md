@@ -21,13 +21,13 @@ jobs:
 
 ## Usage
 
-See [action.yml](action.yml)
-
 **Basic:**
 
 ```yaml
 - uses: remarkablemark/setup-htmlq@v2
 ```
+
+See [action.yml](action.yml)
 
 ## Inputs
 
@@ -53,11 +53,7 @@ See [action.yml](action.yml)
 
 ## Examples
 
-- [remarkablemark/setup-htmlq-demo](https://github.com/remarkablemark/setup-htmlq-demo)
-
-## Contributions
-
-Contributions are welcome!
+- [setup-htmlq-demo](https://github.com/remarkablemark/setup-htmlq-demo)
 
 ## License
 
