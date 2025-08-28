@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.0](https://github.com/remarkablemark/setup-htmlq/compare/v2.1.4...v3.0.0) (2025-08-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* **action:** Bump Node.js runtime from 20 to 24
+
+### Build System
+
+* **action:** update runtime from node20 to node24 ([d6a20fe](https://github.com/remarkablemark/setup-htmlq/commit/d6a20fed44f2329d941ce05dd9b89adf740cd293))
+
 ## [2.1.4](https://github.com/remarkablemark/setup-htmlq/compare/v2.1.3...v2.1.4) (2025-01-16)
 
 
