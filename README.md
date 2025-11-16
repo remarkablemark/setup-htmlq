@@ -1,6 +1,6 @@
 # setup-htmlq
 
-[![version](https://badgen.net/github/release/remarkablemark/setup-htmlq)](https://github.com/remarkablemark/setup-htmlq/releases)
+[![version](https://img.shields.io/github/release/remarkablemark/setup-htmlq)](https://github.com/remarkablemark/setup-htmlq/releases)
 [![build](https://github.com/remarkablemark/setup-htmlq/actions/workflows/build.yml/badge.svg)](https://github.com/remarkablemark/setup-htmlq/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/remarkablemark/setup-htmlq/branch/master/graph/badge.svg?token=GQ7Q6LAWGV)](https://codecov.io/gh/remarkablemark/setup-htmlq)
 
