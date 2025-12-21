@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/remarkablemark/setup-htmlq/compare/v3.0.0...v3.0.1) (2025-12-21)
+
+
+### Miscellaneous Chores
+
+* release 3.0.1 ([79002da](https://github.com/remarkablemark/setup-htmlq/commit/79002da7f7ce544952450350f8e5dffc1a10b55a))
+
 ## [3.0.0](https://github.com/remarkablemark/setup-htmlq/compare/v2.1.4...v3.0.0) (2025-08-28)
 
 
