@@ -1,22 +1,35 @@
-import * as core from '@actions/core';
-import * as exec from '@actions/exec';
-import * as tc from '@actions/tool-cache';
-import os from 'os';
+import { jest } from '@jest/globals';
 
-import { run } from '.';
+const mockedCore = {
+  getInput: jest.fn(),
+  addPath: jest.fn(),
+  setFailed: jest.fn(),
+};
 
-jest.mock('@actions/core');
-jest.mock('@actions/exec');
-jest.mock('@actions/tool-cache');
-jest.mock('os');
+const mockedExec = {
+  exec: jest.fn<() => Promise<void>>(),
+};
 
-const mockedCore = jest.mocked(core);
-const mockedExec = jest.mocked(exec);
-const mockedTc = jest.mocked(tc);
-const mockedOs = jest.mocked(os);
+const mockedTc = {
+  downloadTool: jest.fn<() => Promise<string>>(),
+  extractZip: jest.fn<() => Promise<string>>(),
+  extractTar: jest.fn<() => Promise<string>>(),
+  cacheFile: jest.fn(),
+};
+
+const mockedOs = {
+  platform: jest.fn(),
+};
+
+jest.unstable_mockModule('@actions/core', () => mockedCore);
+jest.unstable_mockModule('@actions/exec', () => mockedExec);
+jest.unstable_mockModule('@actions/tool-cache', () => mockedTc);
+jest.unstable_mockModule('node:os', () => mockedOs);
+
+const { run } = await import('.');
 
 beforeEach(() => {
-  jest.resetAllMocks();
+  jest.clearAllMocks();
 });
 
 const name = 'cli-name';
@@ -40,7 +53,7 @@ const downloads = [
 
 describe.each(downloads)('action', (download) => {
   beforeEach(() => {
-    jest.resetAllMocks();
+    jest.clearAllMocks();
 
     mockedOs.platform.mockReturnValue(download.os);
 
