@@ -1,11 +1,11 @@
-import os from 'os';
-import path from 'path';
+import { platform } from 'node:os';
+import { join } from 'node:path';
 
-const platform = {
-  darwin: 'darwin',
-  linux: 'linux',
-  win32: 'windows',
-} as const;
+enum Platform {
+  darwin = 'darwin',
+  linux = 'linux',
+  win32 = 'windows',
+}
 
 /**
  * Gets a string identifying the operating system platform.
@@ -16,7 +16,7 @@ const platform = {
  * @returns - Return value in [darwin, linux, windows]
  */
 function getOS(os: NodeJS.Platform) {
-  return platform[os as keyof typeof platform];
+  return Platform[os as keyof typeof Platform];
 }
 
 /**
@@ -29,10 +29,10 @@ function getOS(os: NodeJS.Platform) {
  * @returns - Download URL
  */
 export function getDownloadUrl(version: string) {
-  const platform = os.platform();
+  const currentPlatform = platform();
 
-  const filename = `htmlq-x86_64-${getOS(platform)}`;
-  const extension = platform === 'win32' ? 'zip' : 'tar.gz';
+  const filename = `htmlq-x86_64-${getOS(currentPlatform)}`;
+  const extension = currentPlatform === 'win32' ? 'zip' : 'tar.gz';
 
   return `https://github.com/mgdm/htmlq/releases/download/v${version}/${filename}.${extension}`;
 }
@@ -45,5 +45,5 @@ export function getDownloadUrl(version: string) {
  * @returns - Binary path
  */
 export function getBinaryPath(directory: string, name: string) {
-  return path.join(directory, name + (os.platform() === 'win32' ? '.exe' : ''));
+  return join(directory, name + (platform() === 'win32' ? '.exe' : ''));
 }

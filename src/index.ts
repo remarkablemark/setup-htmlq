@@ -7,13 +7,14 @@ import {
   extractZip,
 } from '@actions/tool-cache';
 
-import { CLI_NAME, VERSION } from './constants';
 import { getBinaryPath, getDownloadUrl } from './utils';
+
+export const CLI_NAME = 'htmlq';
 
 export async function run() {
   try {
     // Get the version of the tool to be installed
-    const version = getInput('htmlq-version') || VERSION;
+    const version = getInput('htmlq-version');
     const name = getInput('cli-name') || CLI_NAME;
 
     // Download the specific version of the tool (e.g., tarball/zipball)

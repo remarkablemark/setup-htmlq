@@ -1,10 +1,13 @@
-import os from 'os';
+import { jest } from '@jest/globals';
 
-import { getBinaryPath, getDownloadUrl } from './utils';
+const mockedOs = {
+  platform: jest.fn<() => NodeJS.Platform>(),
+  arch: jest.fn<() => string>(),
+};
 
-jest.mock('os');
+jest.unstable_mockModule('node:os', () => mockedOs);
 
-const mockedOs = jest.mocked(os);
+const { getBinaryPath, getDownloadUrl } = await import('./utils');
 
 const platforms = ['darwin', 'linux', 'win32'] as const;
 
@@ -22,9 +25,8 @@ describe('getDownloadUrl', () => {
     });
 
     beforeEach(() => {
-      jest.resetAllMocks();
+      jest.clearAllMocks();
       mockedOs.platform.mockReturnValueOnce(os);
-      mockedOs.tmpdir.mockReturnValueOnce('/var/folders/1/tmp/T');
     });
 
     it('gets download object', () => {
