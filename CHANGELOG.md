@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.6](https://github.com/remarkablemark/setup-htmlq/compare/v3.0.5...v3.0.6) (2026-04-23)
+
+
+### Build System
+
+* **deps:** bump @actions/core from 3.0.0 to 3.0.1 ([#885](https://github.com/remarkablemark/setup-htmlq/issues/885)) ([a804c48](https://github.com/remarkablemark/setup-htmlq/commit/a804c48ed7a51d12a05b48a980b944c824d689d2))
+
 ## [3.0.5](https://github.com/remarkablemark/setup-htmlq/compare/v3.0.4...v3.0.5) (2026-03-14)
 
 
