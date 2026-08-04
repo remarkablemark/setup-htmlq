@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup htmlq
-        uses: remarkablemark/setup-htmlq@v2
+        uses: remarkablemark/setup-htmlq@v3
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ jobs:
 **Basic:**
 
 ```yaml
-- uses: remarkablemark/setup-htmlq@v2
+- uses: remarkablemark/setup-htmlq@v3
 ```
 
 See [action.yml](action.yml)
@@ -36,7 +36,7 @@ See [action.yml](action.yml)
 **Optional**: The htmlq [version](https://github.com/mgdm/htmlq/releases). Defaults to [`0.4.0`](https://github.com/mgdm/htmlq/releases/tag/v0.4.0):
 
 ```yaml
-- uses: remarkablemark/setup-htmlq@v2
+- uses: remarkablemark/setup-htmlq@v3
   with:
     htmlq-version: 0.4.0
 ```
@@ -46,7 +46,7 @@ See [action.yml](action.yml)
 **Optional**: The htmlq CLI name. Defaults to `htmlq`:
 
 ```yaml
-- uses: remarkablemark/setup-htmlq@v2
+- uses: remarkablemark/setup-htmlq@v3
   with:
     cli-name: htmlq
 ```
