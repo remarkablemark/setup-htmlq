@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.11](https://github.com/remarkablemark/setup-htmlq/compare/v3.0.10...v3.0.11) (2026-10-30)
+
+
+### Build System
+
+* **deps:** bump undici from 6.29.0 to 6.29.1 ([#1027](https://github.com/remarkablemark/setup-htmlq/issues/1027)) ([a812925](https://github.com/remarkablemark/setup-htmlq/commit/a812925ab2bd591a82b4661b5dcb0638ff0055fa))
+
 ## [3.0.10](https://github.com/remarkablemark/setup-htmlq/compare/v3.0.9...v3.0.10) (2026-09-29)
 
 
